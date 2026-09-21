@@ -1,11 +1,8 @@
 image:
   repository: ghcr.io/brunotassinari/k8s-test
-  tag: latest
-
+  tag: 2644a3384145a280191355df516360a35bbffb60
 replicaCount: 1
-
 env:
   appName: k8s-lab
   greeting: "Olá"
-
 imagePullSecret: ghcr-secret
