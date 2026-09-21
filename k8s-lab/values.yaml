@@ -1,6 +1,6 @@
 image:
   repository: ghcr.io/brunotassinari/k8s-test
-  tag: a842841b2178f6b876ce8e90fc5bcbff8b5b368e
+  tag: 2644a3384145a280191355df516360a35bbffb60
 replicaCount: 1
 env:
   appName: k8s-lab
