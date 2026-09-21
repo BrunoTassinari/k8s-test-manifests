@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.env.appName }}
+  labels:
+    app: {{ .Values.env.appName }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Values.env.appName }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.env.appName }}
+    spec:
+      imagePullSecrets:
+        - name: {{ .Values.imagePullSecret }}
+      containers:
+        - name: {{ .Values.env.appName }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          ports:
+            - containerPort: 3000
+          env:
+            - name: APP_NAME
+              value: {{ .Values.env.appName | quote }}
+            - name: GREETING
+              value: {{ .Values.env.greeting | quote }}
